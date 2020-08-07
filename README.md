@@ -10,6 +10,7 @@
    - $ heroku open
    - npm init ;
    -  npm i express ejs express-ejs-layouts ;
+   - npm i --save-dev nodemon ;
    - 
 
 
