@@ -1,3 +1,14 @@
+// const db = 'mongodb://localhost:27017/free-code-camp-voting';
+
+if (process.env.NODE_ENV !== 'production') {
+
+	// require('dotenv').load()
+	require('dotenv').config()
+	// parse()
+
+}
+
+
 const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
@@ -12,6 +23,19 @@ app.set('layout', 'layouts/layout')
 
 app.use(expressLayouts)
 app.use(express.static('public')) 
+
+const mongoose = require('mongoose')
+
+mongoose.connect(process.env.DATABASE_URL, {
+	useNewUrlParser: true
+})
+
+const db = mongoose.connection
+// const db = 'mongodb://localhost/booklibrary';
+// const db = 'mongodb://localhost:27017/free-code-camp-voting';
+db.on('error', error => console.error(error))
+db.once('open', () => console.log('Connected to Mongoose'))  
+
 
 app.use('/', indexRouter)
 
