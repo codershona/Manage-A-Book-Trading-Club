@@ -14,7 +14,7 @@
    - Run the server: npm run devStart ;
    - npm i mongoose ;
    - Adding .env file and installing package to add secret api: npm i --save-dev dotenv;
-   - 
+   - trying to push n heroku
 
 
 
