@@ -25,6 +25,9 @@ router.get('/', async (req, res) => {
 
 router.get('/new', (req, res) => {
 
+	res.send('New Book')
+
+
 	
 
 })
@@ -34,6 +37,9 @@ router.get('/new', (req, res) => {
 
 
 router.post('/', async(req, res) => {
+
+	res.send('Create Book')
+
 
 
 
