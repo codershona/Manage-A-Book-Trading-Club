@@ -1,7 +1,8 @@
 const express = require('express')
 
 const router = express.Router()
-const Book= require('../models/book')
+const Book = require('../models/book')
+const Author = require('../models/author')
 
 
 
@@ -23,9 +24,26 @@ router.get('/', async (req, res) => {
 
 // new Book route:
 
-router.get('/new', (req, res) => {
+router.get('/new', async(req, res) => {
 
-	res.send('New Book')
+	// res.send('New Book')
+
+	try {
+
+		const authors = await Author.find({})
+
+		const book = new Book()
+
+		res.render('books/new', {
+			authors: authors,
+			book: book
+		})
+
+	} catch {
+
+		res.redirect('/books')
+
+	}
 
 
 	
